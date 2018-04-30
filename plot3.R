@@ -19,11 +19,10 @@ hpc$Time<-strptime(paste(hpc$Date,hpc$Time),"%F %T")
 hpc<-subset(hpc,hpc$Date %in% as.Date(c("2007-02-01","2007-02-02")))
 
 # Plot 3
+png("plot3.png", width=480, height=480)
 par(mar=c(4,4,4,2))
 plot(hpc$Time,hpc$Sub_metering_1,ylab="Energy sub metering", xlab="", type="l", col="black")
 points(hpc$Time,hpc$Sub_metering_2, col="red", type="l")
 points(hpc$Time,hpc$Sub_metering_3, col="blue", type="l")
-legend("topright", lwd=1, col=c("black", "red", "blue"), legend=paste(names(hpc[,7:9]),"   "))
-# Saving PNG file "plot3.png"
-dev.copy(png, file="plot3.png", width=480, height=480)
+legend("topright", lwd=1, col=c("black", "red", "blue"), legend=names(hpc[,7:9]))
 dev.off()

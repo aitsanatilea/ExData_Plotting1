@@ -19,9 +19,8 @@ hpc$Time<-strptime(paste(hpc$Date,hpc$Time),"%F %T")
 hpc<-subset(hpc,hpc$Date %in% as.Date(c("2007-02-01","2007-02-02")))
 
 # Plot 1
+png("plot1.png", width=480, height=480)
 par(mfrow=c(1,1),mar=c(5,4.5,4,2))
 hist(hpc$Global_active_power, col="red", main="Global Active Power", 
      xlab="Global Active Power (kilowatts)")
-# Saving PNG file "plot1.png"
-dev.copy(png, file="plot1.png", width=480, height=480)
 dev.off()
